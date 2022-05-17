@@ -88,9 +88,11 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 50px;
   .equation-area{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     align-items: center;
     .plus{
       font-size: 30px;
@@ -116,6 +118,7 @@ export default {
 }
 
 .fraction{
+  margin-top: 20px;
   width: 150px;
   height: 100px;
   display: flex;
@@ -135,7 +138,7 @@ export default {
   }
 }
 .button {
-  margin-left: 30px;
+  margin: 20px 30px;
   border: none;
   color: white;
   padding: 8px 16px;
