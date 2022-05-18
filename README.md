@@ -29,7 +29,7 @@ git add .
 git commit -m "commit message"
 git push
 
-vue run build
+vue build
 
 cd dist
 git init
