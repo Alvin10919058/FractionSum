@@ -22,3 +22,18 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Deploy
+```
+git add .
+git commit -m "commit message"
+git push
+
+vue run build
+
+cd dist
+git init
+git add -A
+git commit -m 'deploy'
+git push -f https://github.com/Alvin10919058/FractionSum.git master:gh-pages
+```

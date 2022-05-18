@@ -69,9 +69,18 @@ export default {
       return arr;
     },
     calculate: function() {
-      const denominator = this.denominatorArray.reduce((previousValue, currentValue) => previousValue * currentValue)
-      const numeratorMap = this.numeratorArray.map(( numerator, index )=>{
-          return numerator * denominator / this.denominatorArray[index]
+      let RNA = []
+      let RDA = []
+      this.numeratorArray.forEach((n, index)=>{
+        const reduction = this.reductionTo(n, this.denominatorArray[index])
+        RNA.push(reduction[0])
+        RDA.push(reduction[1])
+      })
+      console.log(RNA, RDA)
+
+      const denominator = RDA.reduce((previousValue, currentValue) => previousValue * currentValue)
+      const numeratorMap = RNA.map(( numerator, index )=>{
+          return numerator * denominator / RDA[index]
       })
       const numerator = numeratorMap.reduce((previousValue, currentValue) => previousValue + currentValue)
       this.resultArray = this.reductionTo(numerator, denominator)
@@ -97,6 +106,7 @@ export default {
     .plus{
       font-size: 30px;
       margin: 0px 30px;
+      margin-top: 20px;
     }
   }
   .reslut-area{
@@ -107,6 +117,7 @@ export default {
     .equal{
       font-size: 30px;
       margin-right: 30px;
+      margin-top: 20px;
     }
   }
 }
